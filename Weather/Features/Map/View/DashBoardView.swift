@@ -22,11 +22,12 @@ class DashBoardView: UIView {
     @IBOutlet final private weak var mapView: MKMapView!
     
     // MARK: - Variable -
-    final private let identifier = "Tourism"
+    final private let identifier = "Weather"
+    final private var tourDetails = [TourDetails]()
     
     var refreshAnnotations: Bool! {
         didSet {
-            
+            setAnnotation()
         }
     }
     
@@ -45,6 +46,42 @@ private extension DashBoardView {
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(handleTap))
         mapView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    final  private func getTour() -> [TourDetails] {
+        let viewModel = QueryTour(with: DBManager(persistentContainer: persistance))
+        return viewModel.getList(where: nil)
+    }
+    
+    final private func setAnnotation() {
+        
+        tourDetails = getTour()
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let tourAnnotations = tourDetails.reduce(into: [TourAnnotation]()) { (result, tour) in
+            let annotation = TourAnnotation(tour.latitude,
+                                            tour.longitude,
+                                            title: tour.country,
+                                            subtitle: tour.city,
+                                            color: tour.color)
+            
+            result.append(annotation)
+        }
+        
+        mapView.addAnnotations(tourAnnotations)
+        
+        var zoomRect: MKMapRect = MKMapRect.null
+        for annotation in mapView.annotations {
+            let annotationPoint = MKMapPoint(annotation.coordinate)
+            let pointRect = MKMapRect(x: annotationPoint.x,
+                                      y: annotationPoint.y,
+                                      width: 0.1,
+                                      height: 0.1)
+            zoomRect = zoomRect.union(pointRect)
+        }
+        mapView.setVisibleMapRect(zoomRect,
+                                  edgePadding: UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50),
+                                  animated: true)
     }
 }
 

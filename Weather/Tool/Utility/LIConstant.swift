@@ -8,3 +8,4 @@ import UIKit
 import CoreData
 
 // MARK: - Global Variables  -
+let persistance = CoreDataService.shared.persistentContainer

@@ -12,15 +12,13 @@ class TourAnnotation: MKPointAnnotation {
     
     // MARK: - Variable -
     var color: String?
-    var filePath: String?
 
     // MARK: - Init -
     init(_ latitude: CLLocationDegrees,_
             longitude: CLLocationDegrees,
          title: String,
          subtitle: String,
-         color: String,
-         filePath: String) {
+         color: String) {
         
         super.init()
         
@@ -28,6 +26,5 @@ class TourAnnotation: MKPointAnnotation {
         self.title = title
         self.subtitle = subtitle
         self.color = color
-        self.filePath = filePath
     }
 }

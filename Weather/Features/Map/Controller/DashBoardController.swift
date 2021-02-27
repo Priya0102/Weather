@@ -33,15 +33,25 @@ private extension DashBoardController {
 
 // MARK: - DashBoard Delegate -
 extension DashBoardController: DashBoardDelegate {
+    
     func settingsNavigation() {
         
     }
     
     func goToAddCity(_ coordinate: CLLocationCoordinate2D) {
         
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "LocationListController") as? LocationListController {
+            controller.coordinate = coordinate
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func viewCity(_ annotation: TourAnnotation) {
         
+        if let controller = storyboard?.instantiateViewController(withIdentifier: "LocationListController") as? LocationListController {
+            controller.coordinate = annotation.coordinate
+            controller.isBookMarked = true
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
