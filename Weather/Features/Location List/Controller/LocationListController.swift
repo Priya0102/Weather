@@ -122,7 +122,7 @@ private extension LocationListController {
     
     final private func deleteBookmarked(_ tourDetails: TourDetails) {
         let viewModel = QueryTour(with: DBManager(persistentContainer: persistance))
-        viewModel.insertList(response:tourDetails)
+        viewModel.deleteList(response:tourDetails)
         
         alertOk(message: LocationListKeys.bookmarkedDeleted) {
             self.navigationController?.popViewController(animated: true)
