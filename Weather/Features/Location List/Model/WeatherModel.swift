@@ -12,4 +12,5 @@ struct WeatherReport {
     var main = ""
     var description = ""
     var dt_txt = ""
+    var temp = ""
 }

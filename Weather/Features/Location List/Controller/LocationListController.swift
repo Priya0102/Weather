@@ -178,13 +178,19 @@ private extension LocationListController {
                                                         weatherList?.forEach({ (list) in
                                                             
                                                             let date =  list["dt_txt"] as! String
+                                                            var temperature = ""
+                                                            
+                                                            if let tempList =  list["main"] as? [String: Any] {
+                                                                let temp = tempList["temp"]
+                                                                temperature = "\(temp ?? 0)"
+                                                            }
                                                             
                                                             if let weatherTypeList = list["weather"] as? [[String: Any]],
                                                                let weather = weatherTypeList.first {
                                                                 
                                                                 let report = WeatherReport(main: weather["main"] as! String,
                                                                                            description: weather["description"] as! String,
-                                                                                           dt_txt: date)
+                                                                                           dt_txt: date, temp: temperature)
                                                                 
                                                                 response.append(report)
                                                             }

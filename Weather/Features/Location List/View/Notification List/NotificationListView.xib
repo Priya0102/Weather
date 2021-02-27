@@ -34,8 +34,14 @@
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear Sky" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX0-Id-Q6R">
+                            <rect key="frame" x="65" y="45" width="285" height="19.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBf-Mg-kWD">
-                            <rect key="frame" x="65" y="48.5" width="285" height="17"/>
+                            <rect key="frame" x="65" y="69.5" width="285" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -46,11 +52,14 @@
                         <constraint firstItem="DBf-Mg-kWD" firstAttribute="leading" secondItem="6Bx-9i-aKX" secondAttribute="leading" id="47j-CR-0NR"/>
                         <constraint firstItem="6Bx-9i-aKX" firstAttribute="leading" secondItem="MTS-9a-KqF" secondAttribute="trailing" constant="8" id="ADd-af-4W2"/>
                         <constraint firstItem="MTS-9a-KqF" firstAttribute="leading" secondItem="0nJ-6w-TM3" secondAttribute="leading" constant="24" id="Bar-jA-c9A"/>
+                        <constraint firstItem="hX0-Id-Q6R" firstAttribute="top" secondItem="6Bx-9i-aKX" secondAttribute="bottom" constant="3.5" id="CHg-L0-9Pk"/>
+                        <constraint firstItem="hX0-Id-Q6R" firstAttribute="trailing" secondItem="6Bx-9i-aKX" secondAttribute="trailing" id="GcH-Lu-Ook"/>
                         <constraint firstItem="N4n-yv-9K6" firstAttribute="leading" secondItem="0nJ-6w-TM3" secondAttribute="leading" id="IBf-te-A8w"/>
+                        <constraint firstItem="DBf-Mg-kWD" firstAttribute="top" secondItem="hX0-Id-Q6R" secondAttribute="bottom" constant="5" id="MNe-Gc-lrL"/>
+                        <constraint firstItem="hX0-Id-Q6R" firstAttribute="leading" secondItem="6Bx-9i-aKX" secondAttribute="leading" id="Mca-a6-brT"/>
                         <constraint firstItem="N4n-yv-9K6" firstAttribute="top" secondItem="0nJ-6w-TM3" secondAttribute="top" id="NzN-Eq-nZ3"/>
                         <constraint firstItem="6Bx-9i-aKX" firstAttribute="top" secondItem="MTS-9a-KqF" secondAttribute="top" constant="-5" id="QYB-al-pfo"/>
                         <constraint firstItem="DBf-Mg-kWD" firstAttribute="trailing" secondItem="6Bx-9i-aKX" secondAttribute="trailing" id="SQf-4Q-goN"/>
-                        <constraint firstItem="DBf-Mg-kWD" firstAttribute="top" secondItem="6Bx-9i-aKX" secondAttribute="bottom" constant="7" id="a82-gg-VJz"/>
                         <constraint firstItem="MTS-9a-KqF" firstAttribute="top" secondItem="0nJ-6w-TM3" secondAttribute="top" constant="27" id="j3f-en-B2P"/>
                         <constraint firstAttribute="trailing" secondItem="6Bx-9i-aKX" secondAttribute="trailing" constant="25" id="q8L-e9-sRg"/>
                         <constraint firstAttribute="trailing" secondItem="N4n-yv-9K6" secondAttribute="trailing" id="xUU-ZY-arP"/>
@@ -69,7 +78,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="lblDate" destination="DBf-Mg-kWD" id="qTD-UB-JgG"/>
-                <outlet property="lblTitle" destination="6Bx-9i-aKX" id="Sam-ZU-UUf"/>
+                <outlet property="lblTemp" destination="6Bx-9i-aKX" id="Jj6-aW-twZ"/>
+                <outlet property="lblTitle" destination="hX0-Id-Q6R" id="19o-uk-nHR"/>
             </connections>
             <point key="canvasLocation" x="139" y="119"/>
         </view>
