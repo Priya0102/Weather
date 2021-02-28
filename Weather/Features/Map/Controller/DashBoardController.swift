@@ -35,7 +35,10 @@ private extension DashBoardController {
 extension DashBoardController: DashBoardDelegate {
     
     func settingsNavigation() {
-        
+                
+        if let url = URL(string: "https://run.mocky.io/v3/15af2f52-e0a8-4a90-b837-6ece725ae641") {
+            UIApplication.shared.open(url)
+        }
     }
     
     func goToAddCity(_ coordinate: CLLocationCoordinate2D) {
@@ -49,6 +52,7 @@ extension DashBoardController: DashBoardDelegate {
     func viewCity(_ annotation: TourAnnotation) {
         
         if let controller = storyboard?.instantiateViewController(withIdentifier: "LocationListController") as? LocationListController {
+            controller.time = annotation.time ?? ""
             controller.coordinate = annotation.coordinate
             controller.isBookMarked = true
             navigationController?.pushViewController(controller, animated: true)

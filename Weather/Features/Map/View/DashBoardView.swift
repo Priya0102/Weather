@@ -63,7 +63,8 @@ private extension DashBoardView {
                                             tour.longitude,
                                             title: tour.country,
                                             subtitle: tour.city,
-                                            color: tour.color)
+                                            color: tour.color,
+                                            time: tour.time)
             
             result.append(annotation)
         }

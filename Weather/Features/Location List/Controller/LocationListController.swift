@@ -14,6 +14,10 @@ private struct LocationListKeys {
     static let bookmarked = "This city has been bookmarked successfully"
     static let apiError = "Something went wrong"
     static let bookmarkedDeleted = "This city has been removed from bookmarked list"
+    static let apiKey = "21d9afdb6326e663657f830fb4e1c565"
+    static let unit = "metric"
+    static let apiPath = "http://api.openweathermap.org/data/2.5/forecast?lat="
+    static let mockeyApiPath = "https://run.mocky.io/v3/4d4e95fe-0682-4511-b55c-010e93db2dc3"
 }
 
 class LocationListController: UIViewController {
@@ -21,6 +25,7 @@ class LocationListController: UIViewController {
     // MARK: - Variable -
     var isBookMarked = false
     var coordinate: CLLocationCoordinate2D?
+    var time = ""
     private var country = ""
     private var city = ""
     private let header = [
@@ -47,7 +52,8 @@ extension LocationListController: LocationListDelegate {
             let detail = TourDetails(country: country,
                                      city: city,
                                      latitude: coordinate.latitude,
-                                     longitude: coordinate.longitude)
+                                     longitude: coordinate.longitude,
+                                     time: time.isEmpty ? Date().description: time)
             
             if isBookMarked {
                 deleteBookmarked(detail)
@@ -151,7 +157,9 @@ private extension LocationListController {
                           failureCompletion: @escaping (_ failure: Error) -> Void,
                           successCompletion: @escaping (_ response: [WeatherReport]) -> Void) {
         
-        let apiPath = "http://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=fae7190d7e6433ec3a45285ffcf55c86&units=metric"
+       // let apiPath = "\(LocationListKeys.apiPath)\(latitude)&lon=\(longitude)&appid=\(LocationListKeys.apiKey)&units=\(LocationListKeys.unit)"
+        
+        let apiPath = LocationListKeys.mockeyApiPath
         
         guard let path = apiPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
         

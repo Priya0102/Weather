@@ -22,7 +22,7 @@ class QueryTour {
 extension QueryTour {
     
     func insertList(response: TourDetails) {
-        let predicate = NSPredicate(format: "self.city = %@", response.city.lowercased())
+        let predicate = NSPredicate(format: "self.time = %@", response.time.lowercased())
         
         let filter: [TourDetails] = try! repository.getAll(where: predicate)
         if filter.isEmpty {
@@ -39,7 +39,7 @@ extension QueryTour {
     }
     
     func deleteList(response: TourDetails) {
-        let predicate = NSPredicate(format: "self.city = %@", response.city.lowercased())
+        let predicate = NSPredicate(format: "self.time = %@", response.time.lowercased())
         try? repository.delete(item: response, with: predicate)
     }
 }

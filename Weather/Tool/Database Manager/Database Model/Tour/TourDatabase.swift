@@ -15,6 +15,7 @@ struct TourDetails {
     var latitude: Double  = 0
     var longitude: Double  = 0
     var color = ""
+    var time = ""
 }
 
 // MARK: - Convert to storable entity -
@@ -22,7 +23,7 @@ extension TourDetails: Entity {
     
     public func toStorable(in context: NSManagedObjectContext, withSuperClass superClass: NSManagedObject?, isMediaUpate: Bool) -> Tour? {
         
-        let predicate = NSPredicate(format: "self.city = %@", city.lowercased())
+        let predicate = NSPredicate(format: "self.time = %@", time)
         
         let coreDataTour = Tour.getOrCreateSingle(with: predicate, from: context)
         
@@ -30,6 +31,7 @@ extension TourDetails: Entity {
         coreDataTour.country = country.lowercased()
         coreDataTour.latitude = latitude
         coreDataTour.longitude = longitude
+        coreDataTour.time = time
         coreDataTour.color = UIColor.random().toHexString()
         
         return coreDataTour
@@ -41,7 +43,7 @@ extension Tour: Storable {
     
     var primaryKey: String {
         get {
-            return city ?? ""
+            return time ?? ""
         }
     }
     
@@ -50,7 +52,8 @@ extension Tour: Storable {
             return TourDetails(country:  country ?? "",
                                city: city ?? "",
                                latitude: latitude,
-                               longitude: longitude)
+                               longitude: longitude,
+                               time: time ?? "")
         }
     }
 }

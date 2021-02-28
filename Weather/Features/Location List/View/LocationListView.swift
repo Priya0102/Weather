@@ -71,8 +71,6 @@ private extension LocationListView {
             stackLocation.addArrangedSubview(locationView)
         }
         if list.isEmpty { addNoDataView() }
-        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
-        scrollView.setContentOffset(bottomOffset, animated: false)
     }
     
     final private func addNoDataView() {

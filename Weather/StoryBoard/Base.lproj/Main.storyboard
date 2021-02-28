@@ -34,7 +34,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdB-Ez-los">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdB-Ez-los">
                                 <rect key="frame" x="354" y="25" width="40" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -42,7 +42,6 @@
                                     <constraint firstAttribute="width" constant="40" id="XOd-3q-RAG"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="iconList"/>
                                 <connections>
                                     <action selector="btnListAction:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="nma-WD-ViN"/>
                                 </connections>
@@ -95,8 +94,8 @@
         <!--Location List Controller-->
         <scene sceneID="0PG-QW-joP">
             <objects>
-                <viewController storyboardIdentifier="LocationListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sX2-lU-UP3" customClass="LocationListController" customModule="Tour" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="g8g-75-1FV" customClass="LocationListView" customModule="Tour" customModuleProvider="target">
+                <viewController storyboardIdentifier="LocationListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sX2-lU-UP3" customClass="LocationListController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g8g-75-1FV" customClass="LocationListView" customModule="Weather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -206,7 +205,6 @@
     <resources>
         <image name="iconBack" width="52" height="52"/>
         <image name="iconExport" width="24" height="24"/>
-        <image name="iconList" width="48" height="48"/>
         <image name="icon_Background" width="1366" height="1366"/>
         <image name="icon_LoginBg" width="375" height="812"/>
         <systemColor name="systemBackgroundColor">

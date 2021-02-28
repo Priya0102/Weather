@@ -21,5 +21,6 @@ extension Tour {
     @NSManaged public var longitude: Double
     @NSManaged public var color: String?
     @NSManaged public var city: String?
+    @NSManaged public var time: String?
 
 }
