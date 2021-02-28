@@ -31,6 +31,7 @@ class LocationListController: UIViewController {
     private let header = [
         "Content-Type": "application/json"
     ]
+    
     // MARK: - View Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,11 +90,18 @@ private extension LocationListController {
                 }
             }
         }
+        setBookMark()
     }
     
     final private func setCityName(_ cityName: String) {
         if let view = view as? LocationListView {
             view.cityName = cityName
+        }
+    }
+    
+    final private func setBookMark() {
+        if let view = view as? LocationListView {
+            view.isBookmarked = isBookMarked
         }
     }
     
@@ -157,7 +165,7 @@ private extension LocationListController {
                           failureCompletion: @escaping (_ failure: Error) -> Void,
                           successCompletion: @escaping (_ response: [WeatherReport]) -> Void) {
         
-       // let apiPath = "\(LocationListKeys.apiPath)\(latitude)&lon=\(longitude)&appid=\(LocationListKeys.apiKey)&units=\(LocationListKeys.unit)"
+        // let apiPath = "\(LocationListKeys.apiPath)\(latitude)&lon=\(longitude)&appid=\(LocationListKeys.apiKey)&units=\(LocationListKeys.unit)"
         
         let apiPath = LocationListKeys.mockeyApiPath
         

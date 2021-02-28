@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7XL-aU-7vc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -163,7 +164,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Ejc-YN-5Xt"/>
                                     <constraint firstAttribute="width" constant="44" id="jab-aV-3OX"/>
                                 </constraints>
-                                <state key="normal" image="iconExport"/>
+                                <state key="normal" image="icon_Bookmark"/>
                                 <connections>
                                     <action selector="btnBookMarkDeleteAction" destination="g8g-75-1FV" eventType="touchUpInside" id="GFJ-8v-dMa"/>
                                 </connections>
@@ -188,6 +189,7 @@
                             <constraint firstItem="X4v-NX-oaG" firstAttribute="top" secondItem="AxT-AX-oVD" secondAttribute="bottom" id="vcg-gC-vks"/>
                         </constraints>
                         <connections>
+                            <outlet property="btnBookmark" destination="JUv-RC-jwj" id="Yx0-iV-NlV"/>
                             <outlet property="delegate" destination="sX2-lU-UP3" id="zCK-Fd-L6c"/>
                             <outlet property="lblCityName" destination="L1O-C4-V4v" id="1dN-Ci-gNe"/>
                             <outlet property="scrollView" destination="X4v-NX-oaG" id="Lpn-Ew-98w"/>
@@ -204,8 +206,8 @@
     </scenes>
     <resources>
         <image name="iconBack" width="52" height="52"/>
-        <image name="iconExport" width="24" height="24"/>
         <image name="icon_Background" width="1366" height="1366"/>
+        <image name="icon_Bookmark" width="256" height="256"/>
         <image name="icon_LoginBg" width="375" height="812"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

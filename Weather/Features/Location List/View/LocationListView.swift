@@ -20,11 +20,22 @@ class LocationListView: UIView {
     @IBOutlet private weak var stackLocation: UIStackView!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var lblCityName: UILabel!
-    
+    @IBOutlet private weak var btnBookmark: UIButton!
+
     // MARK: - Variable -
     var cityName: String! {
         didSet {
             lblCityName.text = cityName
+        }
+    }
+    
+    var isBookmarked: Bool! {
+        didSet {
+            if isBookmarked {
+                btnBookmark.setImage(UIImage(named: "icon_delete"), for: .normal)
+            } else {
+                btnBookmark.setImage(UIImage(named: "icon_Bookmark"), for: .normal)
+            }
         }
     }
     
